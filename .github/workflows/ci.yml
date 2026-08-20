@@ -27,7 +27,7 @@ jobs:
         run: npm run lint
 
   unit-test:
-  needs: lint
+    needs: lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
