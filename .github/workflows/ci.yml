@@ -4,13 +4,14 @@ on:
   push:
     branches:
       - main
+
   pull_request:
     branches:
       - main
 
 jobs:
   lint:
-  if: ${{ false }}
+    if: false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -42,7 +43,7 @@ jobs:
       - name: Run Unit Tests
         run: npm run test:ci
 
-              - if: success() || failure()
+      - if: success() || failure()
         uses: actions/upload-artifact@v7
         with:
           name: unit-test-${{ github.sha }}
